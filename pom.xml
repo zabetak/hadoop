@@ -31,6 +31,21 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/x
         <!-- Use the version needed by maven-clover-plugin -->
         <version>3.0.2</version>
       </dependency>
+      <dependency>
+        <groupId>commons-io</groupId>
+        <artifactId>commons-io</artifactId>
+        <version>${commons-io.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-databind</artifactId>
+        <version>${jackson2.databind.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.hadoop.thirdparty</groupId>
+        <artifactId>hadoop-shaded-guava</artifactId>
+        <version>${hadoop-thirdparty-guava.version}</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 
@@ -137,13 +152,18 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/x
      running all unit tests before the it.test option is picked up.
     -->
     <surefire.failIfNoSpecifiedTests>false</surefire.failIfNoSpecifiedTests>
+    <commons-io.version>2.16.1</commons-io.version>
+    <jackson2.databind.version>2.18.5</jackson2.databind.version>
+    <hadoop-thirdparty.version>1.5.0</hadoop-thirdparty.version>
+    <hadoop-thirdparty-protobuf.version>${hadoop-thirdparty.version}</hadoop-thirdparty-protobuf.version>
+    <hadoop-thirdparty-guava.version>${hadoop-thirdparty.version}</hadoop-thirdparty-guava.version>
   </properties>
 
   <modules>
+    <module>hadoop-maven-plugins</module>
     <module>hadoop-project</module>
     <module>hadoop-project-dist</module>
     <module>hadoop-assemblies</module>
-    <module>hadoop-maven-plugins</module>
     <module>hadoop-common-project</module>
     <module>hadoop-hdfs-project</module>
     <module>hadoop-yarn-project</module>
